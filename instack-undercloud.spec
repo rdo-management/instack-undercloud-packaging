@@ -56,6 +56,8 @@ cp -ar live %{buildroot}/%{_datadir}/instack-undercloud
 install -m 644 instack.answers.sample %{buildroot}/%{_datadir}/%{name}/instack.answers.sample
 install -m 644 deploy-virt-overcloudrc %{buildroot}/%{_datadir}/%{name}/deploy-virt-overcloudrc
 install -m 644 deploy-baremetal-overcloudrc %{buildroot}/%{_datadir}/%{name}/deploy-baremetal-overcloudrc
+# rc files
+install -m 644 rhel7rc %{buildroot}/%{_datadir}/%{name}/rhel7rc
 
 
 %files
