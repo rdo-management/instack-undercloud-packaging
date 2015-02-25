@@ -35,13 +35,15 @@ install -d -m 755 %{buildroot}/%{_datadir}/%{name}
 cp -ar elements/* %{buildroot}/%{_datadir}/%{name}
 # scripts
 install -d -m 755 %{buildroot}/%{_bindir}
+cp scripts/instack-apply-config %{buildroot}/%{_bindir}
 cp scripts/instack-build-images %{buildroot}/%{_bindir}
 cp scripts/instack-delete-overcloud %{buildroot}/%{_bindir}
 cp scripts/instack-deploy-overcloud %{buildroot}/%{_bindir}
 cp scripts/instack-install-undercloud %{buildroot}/%{_bindir}
 cp scripts/instack-install-undercloud-source %{buildroot}/%{_bindir}
+cp scripts/instack-ironic-deployment %{buildroot}/%{_bindir}
 cp scripts/instack-prepare-for-overcloud %{buildroot}/%{_bindir}
-cp scripts/instack-setup-delorean %{buildroot}/%{_bindir}
+cp scripts/instack-setup-host-rhel7 %{buildroot}/%{_bindir}
 cp scripts/instack-test-overcloud %{buildroot}/%{_bindir}
 cp scripts/instack-update-overcloud %{buildroot}/%{_bindir}
 cp scripts/instack-virt-setup %{buildroot}/%{_bindir}
@@ -61,13 +63,15 @@ install -m 644 deploy-baremetal-overcloudrc %{buildroot}/%{_datadir}/%{name}/dep
 %doc README.md
 %doc LICENSE
 %{_datadir}/instack-undercloud
+%{_bindir}/instack-apply-config
 %{_bindir}/instack-build-images
 %{_bindir}/instack-delete-overcloud
 %{_bindir}/instack-deploy-overcloud
 %{_bindir}/instack-install-undercloud
 %{_bindir}/instack-install-undercloud-source
+%{_bindir}/instack-ironic-deployment
 %{_bindir}/instack-prepare-for-overcloud
-%{_bindir}/instack-setup-delorean
+%{_bindir}/instack-setup-host-rhel7
 %{_bindir}/instack-test-overcloud
 %{_bindir}/instack-update-overcloud
 %{_bindir}/instack-virt-setup
