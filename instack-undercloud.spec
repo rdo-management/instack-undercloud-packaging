@@ -1,5 +1,5 @@
 Name:		instack-undercloud
-Version:	1.0.40
+Version:	2.0.0
 Release:	1%{?dist}
 Summary:	Installation tools to install an undercloud via instack
 
