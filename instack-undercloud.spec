@@ -58,6 +58,8 @@ install -m 644 deploy-virt-overcloudrc %{buildroot}/%{_datadir}/%{name}/deploy-v
 install -m 644 deploy-baremetal-overcloudrc %{buildroot}/%{_datadir}/%{name}/deploy-baremetal-overcloudrc
 # rc files
 install -m 644 rhel7rc %{buildroot}/%{_datadir}/%{name}/rhel7rc
+# heat templates
+cp -ar heat-templates %{buildroot}/%{_datadir}/%{name}
 
 
 %files
