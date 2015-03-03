@@ -28,56 +28,19 @@ installation.
 %prep
 %setup -q -n %{name}-%{upstream_version}
 
+%build
+%{__python} setup.py build
 
 %install
-# elements
-install -d -m 755 %{buildroot}/%{_datadir}/%{name}
-cp -ar elements/* %{buildroot}/%{_datadir}/%{name}
-# scripts
-install -d -m 755 %{buildroot}/%{_bindir}
-cp scripts/instack-apply-config %{buildroot}/%{_bindir}
-cp scripts/instack-build-images %{buildroot}/%{_bindir}
-cp scripts/instack-delete-overcloud %{buildroot}/%{_bindir}
-cp scripts/instack-deploy-overcloud %{buildroot}/%{_bindir}
-cp scripts/instack-install-undercloud %{buildroot}/%{_bindir}
-cp scripts/instack-ironic-deployment %{buildroot}/%{_bindir}
-cp scripts/instack-prepare-for-overcloud %{buildroot}/%{_bindir}
-cp scripts/instack-setup-host-rhel7 %{buildroot}/%{_bindir}
-cp scripts/instack-test-overcloud %{buildroot}/%{_bindir}
-cp scripts/instack-update-overcloud %{buildroot}/%{_bindir}
-cp scripts/instack-virt-setup %{buildroot}/%{_bindir}
-# json files
-cp -ar json-files %{buildroot}/%{_datadir}/instack-undercloud
-# sourcerc
-cp instack-sourcerc %{buildroot}/%{_datadir}/instack-undercloud
-# live
-cp -ar live %{buildroot}/%{_datadir}/instack-undercloud
-# sample files
-install -m 644 instack.answers.sample %{buildroot}/%{_datadir}/%{name}/instack.answers.sample
-install -m 644 deploy-virt-overcloudrc %{buildroot}/%{_datadir}/%{name}/deploy-virt-overcloudrc
-install -m 644 deploy-baremetal-overcloudrc %{buildroot}/%{_datadir}/%{name}/deploy-baremetal-overcloudrc
-# rc files
-install -m 644 rhel7rc %{buildroot}/%{_datadir}/%{name}/rhel7rc
-# heat templates
-cp -ar heat-templates %{buildroot}/%{_datadir}/%{name}
+%{__python} setup.py install -O1 --skip-build --root=%{buildroot}
 
 
 %files
 %doc README.md
 %doc LICENSE
 %{_datadir}/instack-undercloud
-%{_bindir}/instack-apply-config
-%{_bindir}/instack-build-images
-%{_bindir}/instack-delete-overcloud
-%{_bindir}/instack-deploy-overcloud
-%{_bindir}/instack-install-undercloud
-%{_bindir}/instack-ironic-deployment
-%{_bindir}/instack-prepare-for-overcloud
-%{_bindir}/instack-setup-host-rhel7
-%{_bindir}/instack-test-overcloud
-%{_bindir}/instack-update-overcloud
-%{_bindir}/instack-virt-setup
-
+%{_bindir}/instack-*
+%{python_sitelib}/instack_undercloud*
 
 %changelog
 * Wed Jan 14 2015 James Slagle <jslagle@redhat.com> 1.0.40-1
