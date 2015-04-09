@@ -5,8 +5,8 @@ Summary:	Installation tools to install an undercloud via instack
 
 Group:		Development/Languages
 License:	ASL 2.0
-Url:		https://github.com/agroup/instack-undercloud
-Source0:	https://github.com/agroup/instack-undercloud/archive/%{version}.tar.gz
+Url:		https://github.com/rdo-management/instack-undercloud
+Source0:	https://github.com/rdo-management/instack-undercloud/archive/%{version}.tar.gz
 
 BuildArch:	noarch
 
